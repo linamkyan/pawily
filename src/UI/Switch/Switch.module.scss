@@ -1,0 +1,123 @@
+@use '@/styles/variables' as *;
+@use 'sass:color';
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  .input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .track {
+    position: relative;
+    width: 52px;
+    height: 32px;
+    border-radius: 100px;
+    transition: background-color 300ms ease-in-out;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+  }
+
+  .thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: transform 300ms ease-in-out, 
+                background-color 300ms ease-in-out,
+                width 150ms ease-in-out,
+                box-shadow 300ms ease-in-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    display: block;
+    transform: translateX(0);
+  }
+
+  .input:active:not(:disabled) ~ .track .thumb {
+    width: 28px;
+  }
+
+  .checked .thumb {
+    transform: translateX(20px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .input:active:not(:disabled) ~ .track.checked .thumb {
+    transform: translateX(16px);
+    width: 28px;
+  }
+}
+
+.light {
+  .track {
+    background-color: #E0E0E0;
+  }
+
+  .thumb {
+    background-color: $white;
+  }
+
+  .track.checked {
+    background-color: $primary;
+  }
+
+  &:hover:not(:has(.input:disabled)) .track {
+    background-color: #D0D0D0;
+  }
+
+  &:hover:not(:has(.input:disabled)) .track.checked {
+    background-color: color.adjust($primary, $lightness: -5%);
+  }
+
+  .input:disabled ~ .track {
+    opacity: 0.38;
+    cursor: not-allowed;
+  }
+}
+
+.dark {
+  .track {
+    background-color: #4A4A4A;
+  }
+
+  .thumb {
+    background-color: #9E9E9E;
+  }
+
+  .track.checked {
+    background-color: $primary-dark;
+  }
+
+  .checked .thumb {
+    background-color: $primary-dark-text;
+  }
+
+  &:hover:not(:has(.input:disabled)) .track {
+    background-color: #5A5A5A;
+  }
+
+  &:hover:not(:has(.input:disabled)) .track.checked {
+    background-color: #e0e6fa;
+  }
+
+  .input:disabled ~ .track {
+    opacity: 0.38;
+    cursor: not-allowed;
+  }
+}
+
+.switch:focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+  border-radius: 100px;
+}
+
+.input:focus-visible ~ .track {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}

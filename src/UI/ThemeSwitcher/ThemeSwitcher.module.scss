@@ -1,0 +1,76 @@
+@use '@/styles/variables' as *;
+@use 'sass:color';
+
+.themeSwitcher {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.track {
+  position: relative;
+  width: 52px;
+  height: 32px;
+  border-radius: 100px;
+  transition: all 200ms cubic-bezier(0.2, 0, 0, 1);
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+
+  &.light {
+    background-color: #e5e7eb;
+  }
+
+  &.dark {
+    background-color: $primary;
+  }
+}
+
+.thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms cubic-bezier(0.2, 0, 0, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  &.light {
+    transform: translateX(0);
+  }
+
+  &.dark {
+    transform: translateX(20px);
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.themeSwitcher:hover .track {
+  &.light {
+    background-color: #d1d5db;
+  }
+
+  &.dark {
+    background-color: color.adjust($primary, $lightness: -5%);
+  }
+}
+
+.themeSwitcher:active .track {
+  transform: scale(0.98);
+}
+
+.themeSwitcher:focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+  border-radius: 100px;
+}
