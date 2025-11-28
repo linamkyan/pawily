@@ -24,28 +24,28 @@ export const TestPage = () => {
         Current Theme: {theme}
       </h2>
 
-      <div style={{ display: 'flex', gap: '16px', marginTop: '20px', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', gap: '16px', marginTop: '20px', marginBottom: '20px', flexWrap: 'wrap' }}>
         <FilledBtn label="Label" theme={theme} />
         <FilledBtn label="Label" theme={theme} showIcon={true} />
         <FilledBtn label="Label" theme={theme} disabled />
         <FilledBtn label="Label" theme={theme} showIcon={true} disabled />
       </div>
 
-      <div style={{ display: 'flex', gap: '16px', marginTop: '20px', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', gap: '16px', marginTop: '20px', marginBottom: '20px', flexWrap: 'wrap' }}>
         <OutlinedBtn label="Label" theme={theme} />
         <OutlinedBtn label="Label" theme={theme} showIcon={true} />
         <OutlinedBtn label="Label" theme={theme} disabled />
         <OutlinedBtn label="Label" theme={theme} showIcon={true} disabled />
       </div>
 
-      <div style={{ display: 'flex', gap: '16px', marginTop: '20px', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', gap: '16px', marginTop: '20px', marginBottom: '20px', flexWrap: 'wrap' }}>
         <TextBtn label="Label" theme={theme} />
         <TextBtn label="Label" theme={theme} showIcon={true} />
         <TextBtn label="Label" theme={theme} disabled />
         <TextBtn label="Label" theme={theme} showIcon={true} disabled />
       </div>
 
-      <div style={{ display: 'flex', gap: '16px', marginTop: '20px', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', gap: '16px', marginTop: '20px', marginBottom: '20px', flexWrap: 'wrap' }}>
         <Switch checked={switch1} onChange={setSwitch1} theme={theme} />
         <Switch checked={false} onChange={() => {}} theme={theme} disabled />
       </div>
