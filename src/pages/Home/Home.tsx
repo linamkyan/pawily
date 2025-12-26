@@ -8,7 +8,7 @@ interface HomeProps {
   onToggleTheme: () => void;
 }
 
-export const Home: React.FC<HomeProps> = ({ theme, onToggleTheme }) => {
+export const Home: React.FC<HomeProps> = ({ theme, onToggleTheme: _onToggleTheme }) => {
   const { user } = useAppSelector((state) => state.auth);
 
   return (
