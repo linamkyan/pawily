@@ -1,0 +1,107 @@
+@use '@/styles/variables' as *;
+
+.homePage {
+  min-height: 100vh;
+  transition: background-color 0.2s ease;
+
+  &.light {
+    background-color: $gray-50;
+
+    .title {
+      color: $text-primary-light;
+    }
+
+    .subtitle {
+      color: $text-secondary-light;
+    }
+
+    .card {
+      background-color: $white;
+      border-color: $border-light;
+
+      h2 {
+        color: $text-primary-light;
+      }
+
+      p {
+        color: $text-secondary-light;
+      }
+    }
+  }
+
+  &.dark {
+    background-color: $gray-900;
+
+    .title {
+      color: $text-primary-dark;
+    }
+
+    .subtitle {
+      color: $text-secondary-dark;
+    }
+
+    .card {
+      background-color: $gray-800;
+      border-color: $border-dark;
+
+      h2 {
+        color: $text-primary-dark;
+      }
+
+      p {
+        color: $text-secondary-dark;
+      }
+    }
+  }
+}
+
+.main {
+  padding: 48px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

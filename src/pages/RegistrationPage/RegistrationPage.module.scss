@@ -1,0 +1,103 @@
+// RegistrationPage.module.scss (или как называется ваш файл)
+@use '@/styles/variables' as *;
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  
+  &.light {
+    background-color: $white;
+    
+    .backgroundPanel {
+      background: linear-gradient(135deg, $primary 0%, $primary-dark-text 100%);
+    }
+    
+    .formPanel {
+      background-color: $white;
+    }
+  }
+  
+  &.dark {
+    background-color: $dark-mode;
+    
+    .backgroundPanel {
+      background: linear-gradient(135deg, $primary-dark-text 0%, $primary 100%);
+    }
+    
+    .formPanel {
+      background-color: $dark-mode;
+    }
+  }
+}
+
+.backgroundPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+  
+  @media (max-width: 1024px) {
+    display: none;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  color: $white;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  
+  @media (max-width: 640px) {
+    font-size: 36px;
+  }
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.9;
+  
+  @media (max-width: 640px) {
+    font-size: 16px;
+  }
+}
+
+.formPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 640px;
+  
+  @media (max-width: 1024px) {
+    max-width: 100%;
+  }
+}
+
+.themeToggle {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+}

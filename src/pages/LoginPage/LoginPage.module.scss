@@ -1,0 +1,110 @@
+@use '@/styles/variables' as *;
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  transition: background-color 0.2s ease;
+
+  &.light {
+    background-color: $white;
+
+    .title {
+      color: $white;
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .backgroundPanel {
+      background: linear-gradient(135deg, $primary 0%, $primary-dark-text 100%);
+    }
+
+    .formPanel {
+      background-color: $white;
+    }
+  }
+
+  &.dark {
+    background-color: $dark-mode;
+
+    .title {
+      color: $white;
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .backgroundPanel {
+      background: linear-gradient(135deg, #1a1625 0%, #2d2640 100%);
+    }
+
+    .formPanel {
+      background-color: $gray-900;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+.backgroundPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    min-height: 300px;
+    padding: 32px 24px;
+  }
+}
+
+.content {
+  max-width: 600px;
+  z-index: 1;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.formPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 600px;
+
+  @media (max-width: 1024px) {
+    max-width: 100%;
+  }
+}
+
+.themeToggle {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+}

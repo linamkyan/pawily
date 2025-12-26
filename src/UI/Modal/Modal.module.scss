@@ -1,0 +1,187 @@
+@use '@/styles/variables' as *;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
+  animation: slideUp 0.3s ease;
+
+  &.light {
+    background-color: $white;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+    .closeButton {
+      color: $gray-400;
+
+      &:hover {
+        color: $gray-600;
+        background-color: $gray-100;
+      }
+    }
+
+    .title {
+      color: $text-primary-light;
+    }
+
+    .message {
+      color: $text-secondary-light;
+    }
+
+    .button {
+      background-color: $primary;
+      color: $white;
+
+      &:hover {
+        background-color: $primary-dark-text;
+      }
+    }
+
+    &.error {
+      .iconWrapper {
+        color: $error-light;
+      }
+    }
+
+    &.success {
+      .iconWrapper {
+        color: #16a34a;
+      }
+    }
+
+    &.info {
+      .iconWrapper {
+        color: $primary;
+      }
+    }
+  }
+
+  &.dark {
+    background-color: $gray-800;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+    .closeButton {
+      color: $gray-500;
+
+      &:hover {
+        color: $gray-300;
+        background-color: $gray-700;
+      }
+    }
+
+    .title {
+      color: $text-primary-dark;
+    }
+
+    .message {
+      color: $text-secondary-dark;
+    }
+
+    .button {
+      background-color: $primary-dark;
+      color: $gray-900;
+
+      &:hover {
+        background-color: $white;
+      }
+    }
+
+    &.error {
+      .iconWrapper {
+        color: $error-dark;
+      }
+    }
+
+    &.success {
+      .iconWrapper {
+        color: #4ade80;
+      }
+    }
+
+    &.info {
+      .iconWrapper {
+        color: $primary-dark;
+      }
+    }
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.iconWrapper {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.message {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.button {
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}

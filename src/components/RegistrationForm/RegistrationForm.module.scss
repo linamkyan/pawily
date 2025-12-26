@@ -1,0 +1,228 @@
+// RegistrationPage.module.scss
+@use '@/styles/variables' as *;
+
+.formContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  
+  @media (max-width: 640px) {
+    padding: 24px;
+  }
+
+  &.light {
+    .logo {
+      color: $text-primary-light;
+    }
+    
+    .formTitle {
+      color: $text-primary-light;
+    }
+    
+    .formSubtitle,
+    .promptText,
+    .termsText {
+      color: $text-secondary-light;
+    }
+  }
+  
+  &.dark {
+    .logo {
+      color: $text-primary-dark;
+    }
+    
+    .formTitle {
+      color: $text-primary-dark;
+    }
+    
+    .formSubtitle,
+    .promptText,
+    .termsText {
+      color: $text-secondary-dark;
+    }
+  }
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.formHeader {
+  margin-bottom: 32px;
+}
+
+.formTitle {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.formSubtitle {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nameFields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.loginPrompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.promptText {
+  font-size: 14px;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.termsText {
+  font-size: 12px;
+}
+
+.socialButtons {
+  display: flex;
+  gap: 16px;
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+
+// Link styles
+.link {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  &.light {
+    &.primary {
+      color: $primary;
+
+      &:hover {
+        color: $primary-dark-text;
+        text-decoration: underline;
+      }
+
+      &:active {
+        opacity: 0.8;
+      }
+    }
+
+    &.secondary {
+      color: $text-secondary-light;
+
+      &:hover {
+        color: $text-primary-light;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.dark {
+    &.primary {
+      color: $primary-dark;
+
+      &:hover {
+        color: $white;
+        text-decoration: underline;
+      }
+
+      &:active {
+        opacity: 0.8;
+      }
+    }
+
+    &.secondary {
+      color: $text-secondary-dark;
+
+      &:hover {
+        color: $text-primary-dark;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Divider styles
+.divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 24px 0;
+
+  &.light {
+    .dividerLine {
+      background-color: $border-light;
+    }
+
+    .dividerText {
+      color: $text-secondary-light;
+    }
+  }
+
+  &.dark {
+    .dividerLine {
+      background-color: $border-dark;
+    }
+
+    .dividerText {
+      color: $text-secondary-dark;
+    }
+  }
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+}
+
+.dividerText {
+  padding: 0 16px;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+}

@@ -1,8 +1,106 @@
 @use '@/styles/variables' as *;
 
 .header {
-    width: 100%;
-    min-height: 100px;
-    background-color: $primary;
-    padding: 52px;
+  width: 100%;
+  min-height: 100px;
+  padding: 24px 52px;
+  transition: all 0.2s ease;
+
+  &.light {
+    background-color: $white;
+    border-bottom: 1px solid $border-light;
+
+    .userEmail {
+      color: $text-secondary-light;
+    }
+
+    .logoutBtn {
+      color: $white;
+      background-color: $primary;
+
+      &:hover {
+        background-color: $primary-dark-text;
+      }
+    }
+  }
+
+  &.dark {
+    background-color: $dark-mode;
+    border-bottom: 1px solid $border-dark;
+
+    .userEmail {
+      color: $text-secondary-dark;
+    }
+
+    .logoutBtn {
+      color: $dark-mode;
+      background-color: $primary-dark;
+
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.userEmail {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.logoutBtn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 24px;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  .userEmail {
+    display: none;
+  }
+
+  .logoutBtn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }
